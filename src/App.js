@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, NavLink, useParams } from 'react-router-dom'
 import './App.css'
 
 const App = () => {
@@ -12,13 +12,23 @@ const App = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName="active" to="about">
+          <NavLink activeClassName="active" to="/about">
             About
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName="active" to="contact">
+          <NavLink activeClassName="active" to="/contact">
             Contact
+          </NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName="active" to="/post/1">
+            Post
+          </NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName="active" to="/posts">
+            Posts
           </NavLink>
         </li>
       </ul>
@@ -32,6 +42,8 @@ const App = () => {
         <Route path="/contact">
           <Contact />
         </Route>
+        <Route path="/post/:id" component={Post} />
+        <Route path="/posts" component={Posts} />
         <Route>
           <NotFound />
         </Route>
@@ -50,6 +62,15 @@ const About = () => {
 
 const Contact = () => {
   return <h2>Contact</h2>
+}
+
+const Posts = () => {
+  return <h2>Posts</h2>
+}
+
+const Post = () => {
+  const { id } = useParams()
+  return <h2>Post {id}</h2>
 }
 
 const NotFound = () => {
