@@ -1,8 +1,19 @@
+import { BrowserRouter, Route } from 'react-router-dom'
+
 const App = () => {
   return (
-    <div>
+    <BrowserRouter>
       <h1>Hello React Router</h1>
-    </div>
+      <Route path="/">
+        <Home />
+      </Route>
+      <Route path="/about">
+        <About />
+      </Route>
+      <Route path="/contact">
+        <Contact />
+      </Route>
+    </BrowserRouter>
   )
 }
 
