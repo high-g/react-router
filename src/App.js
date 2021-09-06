@@ -1,9 +1,27 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom'
+import './App.css'
 
 const App = () => {
   return (
     <BrowserRouter>
       <h1>Hello React Router</h1>
+      <ul>
+        <li>
+          <NavLink activeClassName="active" exact to="/">
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName="active" to="about">
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName="active" to="contact">
+            Contact
+          </NavLink>
+        </li>
+      </ul>
       <Switch>
         <Route exact path="/">
           <Home />
